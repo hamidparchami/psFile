@@ -1,0 +1,84 @@
+<?php
+/********************************
+ * psFile v0.1
+ * Written by Hamid Parchami
+ * Email: hamidparchami@gmail.com
+ * 29/09/2014
+ ********************************/
+require_once("includes/processor/pWd_file_functions.php");
+require_once("includes/processor/pWd_common_functions.php");
+$fileObject = new PsFile();
+
+$ac_sw1 = 0;
+$ac_sw2 = 0;
+$row = 1;
+$dir = $_GET['folderName'];
+$topDir = $fileObject->topDirectory($dir);
+
+$directories = array();
+$files_list  = array();
+$files = scandir($dir);
+foreach($files as $file){
+   if(($file != '.') && ($file != '..') && ($file != "index.php")){
+	  if(is_dir($dir.'/'.$file)){
+		 $directories[]  = $file;
+
+	  }else{
+		 $files_list[]    = $file;
+
+	  }
+   }
+}
+?>
+<div class="fileManagerToolbar">
+<?php if($topDir != ""){ ?>
+    <div class="upLinkContainer">
+        <a id="upDirectory" href="javascript:void();" onclick="javascript:openFolder('<?php echo $topDir; ?>');"><img src="themes/default/images/folder-up.png" /> Up One Level</a>
+    </div>
+<?php } ?>
+    <div class="currentFolderContainer" id="currentFolder"><img src="themes/default/images/go-home.png" /> <?php echo $_GET['folderName']; ?>:</div>
+</div>
+<div class="showFilesTable" style="overflow:auto;">
+    <div class="showFileTableTitle">
+    	<div class="fileName" style="padding:0px;">Name</div>
+    	<div class="fileOptions" style="padding:0px;">Options</div>
+    </div>
+    <!--Start Folders Container-->
+    <?php foreach($directories as $directory){ ?>
+	<?php $class = ($ac_sw1++%2==0)?"odd":"even"; ?>
+   	<div class="fileContainer <?php echo $class; ?>" style="overflow:auto;">
+        <div class="fileName">
+			<a href="javascript:openFolder('<?php echo $dir."/".$directory; ?>');" title="<?php if(strlen($directory) > 70) echo $directory; ?>"><img src="themes/default/images/folder.png" width="24" height="24" style="vertical-align:middle;" /> <b><?php echo cropLongWord($directory, 70); ?></b></a>
+        </div>
+    	<div class="fileOptionsContainer">
+            <div class="fileOption"><a id="deleteObject" href="javascript:void();" onclick="javascript:deleteObject('<?php echo $dir."/".$directory; ?>', 'folder');" title="Delete Folder"><img src="themes/default/images/folder_delete.png" width="24" height="24" /></a></div>
+		</div>
+	</div>
+	<?php } ?>
+    <!--End Folders Container-->
+    <!--Start Files Container-->
+    <?php foreach($files_list as $file_list){ ?>
+	<?php $class = ($ac_sw1++%2==0)?"odd":"even"; ?>
+    <div class="fileContainer <?php echo $class; ?>" style="overflow:auto;">
+        <div class="fileName">
+            <a href="<?php echo $dir."/".$file_list; ?>" title="<?php if(strlen($file_list) > 70) echo $file_list; ?>" target="_blank">
+            <?php if(file_exists("themes/default/images/file-extensions/".$fileObject->getFileExtension($dir."/".$file_list).".png")){ ?>
+			    <img src="themes/default/images/file-extensions/<?php echo $fileObject->getFileExtension($dir."/".$file_list); ?>.png" width="24" height="24" style="vertical-align:middle;" />
+            <?php }else{ ?>
+                <img src="themes/default/images/page.png" width="24" height="24" style="vertical-align:middle;" />
+            <?php } ?>
+            <?php echo cropLongWord($file_list, 70); ?>
+            </a>
+        </div>
+    	<div class="fileOptionsContainer">
+            <div class="fileOption"><a id="deleteObject" href="javascript:void();" onclick="javascript:deleteObject('<?php echo $dir."/".$file_list; ?>', 'file');" title="Delete File"><img src="themes/default/images/delete.png" width="21" height="21" style="vertical-align:top;" /></a></div>
+            <div class="fileOption">
+            <?php if($fileObject->isImage($file_list)){ ?>
+                <a id="resizeImage" href="javascript:void();" onclick="javascript:showResizeImagePanel('<?php echo $dir."/".$file_list; ?>', '<?php echo $fileObject->getImageWidth($dir."/".$file_list); ?>', '<?php echo $fileObject->getImageHeight($dir."/".$file_list); ?>');" title="Resize Image"><img src="themes/default/images/resize_pictures.png" width="20" height="20" /></a>
+            <?php } ?>
+            </div>
+        </div>
+	</div>
+    <?php } ?>
+    <!--End Files Container-->
+</div>

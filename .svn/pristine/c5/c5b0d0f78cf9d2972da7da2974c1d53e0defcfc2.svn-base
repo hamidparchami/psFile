@@ -1,0 +1,177 @@
+@charset "utf-8";
+body,td,th {
+	background:url(../images/body.jpg);
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 11px;
+	color: #333;
+}
+a {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 11px;
+	color: #333;
+	text-decoration:none;
+}
+a:visited {
+	color: #333;
+}
+a:hover {
+	color: #06F;
+	text-decoration:underline;
+}
+.titleGradient{
+	background: rgb(235,241,246); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(235,241,246,1) 0%, rgba(171,211,238,1) 50%, rgba(137,195,235,1) 51%, rgba(213,235,251,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(235,241,246,1)), color-stop(50%,rgba(171,211,238,1)), color-stop(51%,rgba(137,195,235,1)), color-stop(100%,rgba(213,235,251,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-9 */	
+}
+.boxHead{
+	background:url(../images/box-head.jpg) repeat;
+}
+.fileManagerTitle{
+	border: 1px solid #335A85;
+    border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	color:#FFF;
+	padding: 10px;
+	font-size:14px;
+	font-weight:bolder;
+}
+.navigation{
+	background:#F1F1F1;
+	border:1px solid #CCC;
+	border-radius:5px;
+	float: left;
+	padding:6px;
+	line-height:3.8em;
+}
+.showFilesTable{
+	border:1px solid #CCC;
+	border-top:0px;
+    border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	padding:0px;
+}
+.showFileTableTitle{
+	border: 1px solid #7E8FC4 !important;
+	background: #73A4D9 !important;
+	background: -moz-linear-gradient(top, #90C2EE 0%, #73A4D9 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#90C2EE), color-stop(100%,#73A4D9)) !important;
+	background: -webkit-linear-gradient(top, #90C2EE 0%,#73A4D9 100%) !important;
+	background: -o-linear-gradient(top, #90C2EE 0%,#73A4D9 100%) !important;
+	background: -ms-linear-gradient(top, #90C2EE 0%,#73A4D9 100%) !important;
+	background: linear-gradient(top, #90C2EE 0%,#73A4D9 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#90C2EE', endColorstr='#73A4D9',GradientType=0 ) !important;
+	-moz-box-shadow: 0 1px 1px #7E8FC4, 0px 1px 0 #B2DBFF inset !important;
+	-webkit-box-shadow: 0 1px 1px #7E8FC4, 0px 1px 0 #B2DBFF inset !important;
+	box-shadow: 0 1px 1px #7E8FC4, 0px 1px 0 #B2DBFF inset !important;
+	color:#FFF;
+	overflow:auto;
+	padding:4px;
+	font-weight:bold;
+}
+.fileContainer{
+}
+.odd{
+	background:#F1F1F1;
+}
+.even{
+	background:#F8F8F8;
+}
+.fileContainer:hover{
+	background:#D6E8FE;
+}
+.fileName{
+	padding:6px;
+	float:left;
+	width:550px;
+}
+.fileOptionsContainer{
+    border: 0px solid #000000;
+	padding:6px 0px 6px 0px;
+	float:left;
+    overflow: auto;
+	width:134px;
+}
+.fileOption{
+    float: right;
+    margin-right: 6px;
+    width: 24px;
+}
+.fileManagerToolbar{
+	background:url(../images/nav.jpg);
+	border-left:1px solid #CCC;
+	border-right:1px solid #CCC;
+	overflow:auto;
+	padding:2px 4px 0px 4px;
+}
+.currentFolderContainer{
+	border:0px solid #F00;
+	color:#666;
+	font-family:"Courier New", Courier, monospace;
+	padding:0px 3px 3px 3px;
+	float:left;
+}
+.currentFolderContainer img{
+	width:18px;
+	height:18px;
+	vertical-align:bottom;
+}
+.upLinkContainer{
+	padding-left:6px;
+	float:left;
+	width:120px;
+}
+.upLinkContainer img{
+	width:18px;
+	height:18px;
+	vertical-align:text-bottom;
+}
+.actionContainer{
+	border:1px solid #CCC;
+	border-top:0px;
+	display:none;
+	padding:5px 5px 5px 10px;
+}
+.actionContainer input[type=text]{
+	background:#FAFAFA;
+	border:1px solid #CCC;
+	padding:3px;
+}
+.button{
+	border: 1px solid #677C13 !important;
+	background: #829E18 !important;
+	background: -moz-linear-gradient(top, #ADC800 0%, #829E18 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ADC800), color-stop(100%,#829E18)) !important;
+	background: -webkit-linear-gradient(top, #ADC800 0%,#829E18 100%) !important;
+	background: -o-linear-gradient(top, #ADC800 0%,#829E18 100%) !important;
+	background: -ms-linear-gradient(top, #ADC800 0%,#829E18 100%) !important;
+	background: linear-gradient(top, #ADC800 0%,#829E18 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ADC800', endColorstr='#829E18',GradientType=0 ) !important;
+	-moz-box-shadow: 0 1px 1px #677C13, 0px 1px 0 #DEF92F inset !important;
+	-webkit-box-shadow: 0 1px 1px #677C13, 0px 1px 0 #DEF92F inset !important;
+	box-shadow: 0 1px 1px #677C13, 0px 1px 0 #DEF92F inset !important;
+	color:#FFF;
+	padding:4px 6px 4px 6px;
+	cursor:pointer;
+}
+.cancelButton{
+	border: 1px solid #AF2D1C !important;
+	background: #CB2C1A !important;
+	background: -moz-linear-gradient(top, #D96D3A 0%, #CB2C1A 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D96D3A), color-stop(100%,#CB2C1A)) !important;
+	background: -webkit-linear-gradient(top, #D96D3A 0%,#CB2C1A 100%) !important;
+	background: -o-linear-gradient(top, #D96D3A 0%,#CB2C1A 100%) !important;
+	background: -ms-linear-gradient(top, #D96D3A 0%,#CB2C1A 100%) !important;
+	background: linear-gradient(top, #D96D3A 0%,#CB2C1A 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D96D3A', endColorstr='#CB2C1A',GradientType=0 ) !important;
+	-moz-box-shadow: 0 1px 1px #AF2D1C, 0px 1px 0 #FC9E76 inset !important;
+	-webkit-box-shadow: 0 1px 1px #AF2D1C, 0px 1px 0 #FC9E76 inset !important;
+	box-shadow: 0 1px 1px #AF2D1C, 0px 1px 0 #FC9E76 inset !important;
+	color:#FFF;
+	padding:4px 6px 4px 6px;
+	cursor:pointer;
+}

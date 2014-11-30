@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>psFile - Readme</title>
+<style type="text/css">
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #333;
+	line-height:1.8em;
+	margin:10px 20px 10px 20px;
+}
+.value {
+	color: #900;
+}
+.variable {
+	color: #09F;
+}
+.comment {
+	color: #F90;
+}
+.number {
+	color: #F00;
+}
+</style>
+</head>
+
+<body>
+<div>
+    <h2>What is psFile:</h2>
+    <div style="padding-left:20px;">
+        psFile is a simple file manager tool based on PHP and <strong>without</strong> MySQL requirement. Features include a file uploader and a file leecher also an image resizer.<br />
+    </div>
+
+    <h2>How to Run psFile:</h2>
+    	<div style="padding-left:20px;">
+            First you will need to decide where on your domain you'd like your psFile file manger to run:<br />
+            • In the root directory of your website. (For example, http://example.com/)<br />
+            • In a subdirectory of your website. (For example, http://example.com/psFile/)<br />
+            <strong>Note:</strong> The location of your root web directory in the filesystem on your web server will vary across hosting providers and operating systems. Check with your hosting provider or system administrator if you do not know where this is. <br />
+
+            <h3>• In the Root Directory:</h3>
+            • If you need to upload your files to your web server, use an FTP client to upload all the contents of the psFile directory (but not the directory itself) into the root directory of your website.<br />
+
+            <h3>• In a Subdirectory:</h3>
+            • If you need to upload your files to your web server, use an FTP client to upload the psFile directory to your desired location within the root directory of your website.<br />
+            <strong>Note:</strong> You are able to rename psFile directory to your desired name.
+
+            <h3>• Run psFile and enter file manager:</h3>
+            Point a web browser to run psFile.<br />
+
+            • If you placed the psFile files in the root directory, you should visit: http://example.com/<br />
+            • If you placed the psFile files in a subdirectory called psFile, for example, you should visit: http://example.com/psFile/<br />
+
+            Now you should see the login page.
+            Enter the blow information for first login:
+            <div style="background:#F1F1F1; border:1px solid #CCC; padding:6px; margin-top:10px; width:200px;">
+                Username: <span class="value">admin</span><br />
+                Password: <span class="value">admin</span>
+            </div><br />
+            <strong>Note:</strong> After log into the psFile it's strongly recomended to change your password at first use! Make sure to use a difficult-to-guess password and keep it safe (Write down the password you chose). Also it's recomanded to change your password once in a while!
+        </div>
+	<h2>How to increase max allowed file size in file uploader:</h2>
+        <div style="padding-left: 20px;">
+            Use your web server panel for example cPanel:<br />
+            In the cPanel file manager and the directory that you placed psFile find uploadFiles.php and open it with an editor. Now find <span class="variable">$MaxSize</span> and there is max allowed file size after <span class="value">=</span> by Megabytes.<br />
+            For example on your psFile max allowed file size is <span class="number">100</span> MB.<br />
+            And you want increase this up to <span class="number">1000</span> MB.<br />
+            Just change <span class="number">100</span> to <span class="number">1000</span>. Now you are able to upload bigger files.<br />
+            Piece of cake :)<br /><br />
+            Finally you have something like this in the current line:<br />
+            <div style="background:#F1F1F1; border:1px solid #CCC; padding:6px; margin-top:10px; width:700px;">
+              <span class="variable">$MaxSize</span> <span class="value"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 1000</span>; <span class="comment"> #MB &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //Max Allowed File Size(Megabytes)</span>
+            </div>
+        </div>
+        
+	<h2>How to add allowable extension to file uploader:</h2>
+        <div style="padding-left:20px;">
+            Use your web server panel for example cPanel:<br />
+            In the cPanel file manager and the directory that you placed psFile find uploadFiles.php and open it with an editor. Now find <span class="variable">$AllowedExtensions</span> and there is allowed extensions between <span class="value">""</span><br />
+            For example on your psFile these extensions are allowable: <span class="value">jpg,gif,png,avi,mp4</span><br />
+            And you want to add <span class="value">flv</span> and <span class="value">psd</span> extensions to the list.<br />
+            You should write the extension at the end of the list with a comma before the extension name.<br />
+            So the value between <span class="value">""</span> would be <span class="value">"jpg,gif,png,avi,mp4,flv,psd"</span> and finally you have something like this in the current line:<br />
+
+            <div style="background:#F1F1F1; border:1px solid #CCC; padding:6px; margin-top:10px; width:700px;">
+              <span class="variable">$AllowedExtensions</span> <span class="value">= "jpg,jpeg,gif,png,psd,mp3,mp4,avi,flv,3gp,rar,zip"</span>; <span class="comment">//Allowed File Extensions @@comma seprated!!!</span>
+            </div>
+        </div>
+        
+    <h2>How to use psFile class (For Advanced Users): </h2>
+    <div style="padding-left:20px;">
+		Here is the list of all methods in psFile Class (File and Folder Processing):		
+        <div style="background:#F1F1F1; border:1px solid #CCC; color:#000; padding:6px; margin-top:10px; width:700px;">
+            checkDirectorySlash(<span class="variable">$directory</span>)<br /><span class="comment">//check if has not add a / at the end of given directory</span><hr />
+            
+            createFolder(<span class="variable">$folderName</span>, <span class="variable">$mainFolder=""</span>)<br /><span class="comment">//Create a folder and all subdirectories by given format Ex: blue/images/icons @@mainFolder{parent folder Ex: themes/}</span><hr />
+            
+            deleteFile(<span class="variable">$File</span>)<br /><span class="comment">//Delete given file</span><hr />
+             
+            deleteFolder(<span class="variable">$Path</span>)<br /><span class="comment">//Delete given folder and all subdirectories and files</span><hr />
+            
+            downloadFile(<span class="variable">$filePath</span>, <span class="variable">$fileName</span>)<br /><span class="comment">//Lets user to download a file but does not reveal the file address @@filePath{Ex: music/free/} {@@fileName Ex: my_heart.mp3}</span><hr />
+            
+            fakeIndexCheck(<span class="variable">$directory</span>, <span class="variable">$createFolder=0</span>)<br /><span class="comment">//Create an empty index file for given directory @@createFolder = 1 {create folder if does not exists}</span><hr />
+           
+            getFileExtension(<span class="variable">$file</span>)<br /><span class="comment">//Return file extension Ex: themes/blue/images/header.jpg return jpg</span><hr />
+            
+            getImageHeight(<span class="variable">$image</span>)<br /><span class="comment">//Return image height</span><hr />
+            
+            getImageWidth(<span class="variable">$image</span>)<br /><span class="comment">//Return image width</span><hr />
+            
+            getURL()<br /><span class="comment">//Return current URL/URI</span><hr />
+            
+            isImage(<span class="variable">$file</span>)<br /><span class="comment">//Check that is given file an image or not (jpg,jpeg,gif,png)</span><hr />
+            
+            lastPath(<span class="variable">$directory</span>)<br /><span class="comment">//Return the last path Ex: themes/blue/images/header.jpg return header.jpg</span><hr />
+            
+            leechFileInNewLocation(<span class="variable">$fileSourcePath</span>, <span class="variable">$destinationFolder=""</span>, <span class="variable">$baseFolder = ""</span>, <span class="variable">$bluePrintLeech=false</span>)<br /><span class="comment">//Copy a file from server A to server B @@fileSourcePath{Ex: domain.com/files/my_heart.mp3} @@destinationFolder{new file location Ex: files/copy/music/} @@baseFolder{a fixed directory to place blue print leech files} @@bluePrintLeech{if true copy desired file into directories in server B exactly the same as location in server A}</span><hr />
+            
+            renameFile(<span class="variable">$oldFileName</span>, <span class="variable">$newFileName</span>)<br /><span class="comment">//Rename file</span><hr />
+            
+            renameFolder(<span class="variable">$oldFolderName</span>, <span class="variable">$newFolderName</span>)<br /><span class="comment">//Rename Folder</span><hr />
+            
+            topDirectory(<span class="variable">$directory</span>)<br /><span class="comment">//Return upper directory Ex: themes/blue/images return themes/blue</span><hr />
+            
+            uploadFiles(<span class="variable">$mainDirectory</span>, <span class="variable">$fileField</span>, <span class="variable">$MaxSize</span>, <span class="variable">$AllowedExtensions</span>)<br /><span class="comment">//Upload multiple files @@mainDirectory{upload location} @@fileField{form field name} @@MaxSize{max allowed size by megabytes} @@AllowedExtensions{seprate by comma Ex: jpg,png,flv,avi,mp3} </span><hr />
+            
+            writeToFile(<span class="variable">$fileName</span>, <span class="variable">$fileContent</span>)<br /><span class="comment">//Write given content to the desired file</span>
+        </div>
+    </div>
+    <br />
+    <div style="padding-left:20px;">
+		<hr size="1" color="#CCCCCC" />
+        Writen by Hamid Parchami<br />
+        hamidparchami@gmail.com<br />
+        04/10/2014<br />
+    </div>
+</div>
+</body>
+</html>

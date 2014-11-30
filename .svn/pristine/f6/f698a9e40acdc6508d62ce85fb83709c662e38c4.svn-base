@@ -1,0 +1,22 @@
+<?php
+/********************************
+ * psFile v0.1
+ * Written by Hamid Parchami
+ * Email: hamidparchami@gmail.com
+ * 29/09/2014
+ ********************************/
+require_once("includes/processor/pWd_file_functions.php");
+	/** Start Upload Files Config **/
+	$fileField		 = "files"; 			   	//File Field Name
+	$mainFolder 		= @$_POST['mainFolder']; //Destination Directory
+	$MaxSize		   = 100;				   	//Max Allowed File Size(Megabyte)
+	$AllowedExtensions = "jpg,jpeg,gif,png,mp3,mp4,avi,flv,rar,zip"; //Allowed File Extensions @@comma seprated!!!
+	/** End Upload Files Config **/
+	
+	($mainFolder != "") ? $mainFolder : "uploads/"; //Do Not Change This!!!
+
+if(isset($_FILES['files'])){
+	$uploadFiles = new PsFile;
+	echo $uploadFiles->uploadFiles($mainFolder, $fileField, $MaxSize, $AllowedExtensions);
+}
+?>
